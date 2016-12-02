@@ -1,8 +1,20 @@
 <resources>
     <string name="app_name">Online Biker Community</string>
+    <string name="app_name_th">ชุมชนนักขี่รถจักรยานยนต์</string>
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+
+    <string name="menu_news">ข่าวและกิจกรรม</string>
+    <string name="menu_blog">บล็อกความรู้</string>
+    <string name="menu_forum">ฟอรั่ม</string>
+    <string name="menu_setting">ตั้งค่า</string>
+    <string name="menu_system">ระบบ</string>
+    <string name="menu_login">เข้าสู่ระบบ</string>
+    <string name="menu_logout">ออกจากระบบ</string>
+    <string name="menu_register">สมัครสมาชิก</string>
 </resources>
