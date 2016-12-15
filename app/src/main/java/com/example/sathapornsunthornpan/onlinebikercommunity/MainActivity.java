@@ -1,10 +1,9 @@
 package com.example.sathapornsunthornpan.onlinebikercommunity;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -13,10 +12,10 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.widget.Toast;
 
 import com.example.sathapornsunthornpan.onlinebikercommunity.blog.BlogFragment;
 import com.example.sathapornsunthornpan.onlinebikercommunity.forum.ForumFragment;
+import com.example.sathapornsunthornpan.onlinebikercommunity.news.CardFragmentNews;
 import com.example.sathapornsunthornpan.onlinebikercommunity.news.NewsFragment;
 import com.example.sathapornsunthornpan.onlinebikercommunity.setting.SettingFragment;
 
@@ -81,10 +80,13 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         //creating fragment object
-        Fragment fragment = null;
+        FragmentManager fm = getSupportFragmentManager();
+        Fragment fragment = fm.findFragmentById(R.id.content_frame);
+
 
         if (id == R.id.nav_news) {
-            fragment = new NewsFragment();
+//            fragment = new NewsFragment();
+            fragment = new CardFragmentNews();
         } else if (id == R.id.nav_blog) {
             fragment = new BlogFragment();
         } else if (id == R.id.nav_forum) {

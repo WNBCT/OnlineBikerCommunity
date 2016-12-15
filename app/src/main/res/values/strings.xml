@@ -17,4 +17,6 @@
     <string name="menu_login">เข้าสู่ระบบ</string>
     <string name="menu_logout">ออกจากระบบ</string>
     <string name="menu_register">สมัครสมาชิก</string>
+
+    <string name="send_to">Share</string>
 </resources>
