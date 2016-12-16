@@ -34,7 +34,8 @@ public class BlogFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         //returning our layout file
         //change R.layout.yourlayoutfilename for each of your fragments
-        return inflater.inflate(R.layout.fragment_news, container, false);
+//        return inflater.inflate(R.layout.fragment_news, container, false);
+        return null;
     }
 
 
@@ -131,8 +132,8 @@ public class BlogFragment extends Fragment {
         Log.d("Show BlogModel", mainBlogModel.toString());
 
         BlogCustomList blogCustomList = new BlogCustomList(getActivity(), mainBlogModel);
-        listView = (ListView) viewGo.findViewById(R.id.listViewNews);
-        listView.setAdapter(blogCustomList);
+//        listView = (ListView) viewGo.findViewById(R.id.listViewNews);
+//        listView.setAdapter(blogCustomList);
 
 
     }

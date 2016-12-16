@@ -13,10 +13,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
 
-import com.example.sathapornsunthornpan.onlinebikercommunity.blog.BlogFragment;
 import com.example.sathapornsunthornpan.onlinebikercommunity.forum.ForumFragment;
-import com.example.sathapornsunthornpan.onlinebikercommunity.blog.CardFragment;
-import com.example.sathapornsunthornpan.onlinebikercommunity.news.NewsFragment;
+import com.example.sathapornsunthornpan.onlinebikercommunity.test.CardFragment;
+import com.example.sathapornsunthornpan.onlinebikercommunity.news.NewsCardFragment;
 import com.example.sathapornsunthornpan.onlinebikercommunity.setting.SettingFragment;
 
 public class MainActivity extends AppCompatActivity
@@ -44,7 +43,7 @@ public class MainActivity extends AppCompatActivity
 
 
 //        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-//        ft.replace(R.id.content_frame, new NewsFragment());
+//        ft.replace(R.id.content_frame, new BlogFragment());
 //        ft.commit();
 
         // FloatingAction
@@ -85,10 +84,10 @@ public class MainActivity extends AppCompatActivity
 
 
         if (id == R.id.nav_news) {
-//            fragment = new NewsFragment();
-            fragment = new CardFragment();
+            fragment = new NewsCardFragment();
         } else if (id == R.id.nav_blog) {
-            fragment = new BlogFragment();
+            fragment = new CardFragment();
+//            fragment = new BlogFragment();
         } else if (id == R.id.nav_forum) {
             fragment = new ForumFragment();
         } else if (id == R.id.nav_manage) {
@@ -101,7 +100,7 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_logout) {
 
         } else {
-            fragment = new NewsFragment();
+
         }
 
         //replacing the fragment

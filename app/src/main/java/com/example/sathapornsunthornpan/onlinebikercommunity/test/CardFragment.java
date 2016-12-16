@@ -1,10 +1,8 @@
-package com.example.sathapornsunthornpan.onlinebikercommunity.blog;
+package com.example.sathapornsunthornpan.onlinebikercommunity.test;
 
 
 
-import android.content.ContentResolver;
 import android.content.Intent;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
@@ -13,14 +11,10 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.sathapornsunthornpan.onlinebikercommunity.R;
-import com.example.sathapornsunthornpan.onlinebikercommunity.adapter.Adapter_News;
 import com.example.sathapornsunthornpan.onlinebikercommunity.model.WonderModel;
-import com.example.sathapornsunthornpan.onlinebikercommunity.news.NewsScrollingActivity;
 
 import java.util.ArrayList;
 

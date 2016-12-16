@@ -1,4 +1,4 @@
-package com.example.sathapornsunthornpan.onlinebikercommunity.news;
+package com.example.sathapornsunthornpan.onlinebikercommunity.test;
 
 import android.os.Bundle;
 import android.support.design.widget.CollapsingToolbarLayout;

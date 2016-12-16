@@ -1,10 +1,9 @@
-package com.example.sathapornsunthornpan.onlinebikercommunity.adapter;
+package com.example.sathapornsunthornpan.onlinebikercommunity.test;
 
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
