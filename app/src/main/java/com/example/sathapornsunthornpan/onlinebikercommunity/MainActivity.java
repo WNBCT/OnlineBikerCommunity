@@ -15,7 +15,7 @@ import android.view.MenuItem;
 
 import com.example.sathapornsunthornpan.onlinebikercommunity.blog.BlogFragment;
 import com.example.sathapornsunthornpan.onlinebikercommunity.forum.ForumFragment;
-import com.example.sathapornsunthornpan.onlinebikercommunity.news.CardFragmentNews;
+import com.example.sathapornsunthornpan.onlinebikercommunity.blog.CardFragment;
 import com.example.sathapornsunthornpan.onlinebikercommunity.news.NewsFragment;
 import com.example.sathapornsunthornpan.onlinebikercommunity.setting.SettingFragment;
 
@@ -86,7 +86,7 @@ public class MainActivity extends AppCompatActivity
 
         if (id == R.id.nav_news) {
 //            fragment = new NewsFragment();
-            fragment = new CardFragmentNews();
+            fragment = new CardFragment();
         } else if (id == R.id.nav_blog) {
             fragment = new BlogFragment();
         } else if (id == R.id.nav_forum) {

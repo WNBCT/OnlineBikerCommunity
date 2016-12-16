@@ -1,22 +1,22 @@
-package com.example.sathapornsunthornpan.onlinebikercommunity.blog;
+package com.example.sathapornsunthornpan.onlinebikercommunity.model;
 
 
 import java.util.List;
 
-public class MainBlog {
+public class MainBlogModel {
 
     public int count;
 
-    public List<Blog> result;
+    public List<BlogModel> result;
 
-    public MainBlog(int count, List<Blog> result) {
+    public MainBlogModel(int count, List<BlogModel> result) {
         this.count = count;
         this.result = result;
     }
 
     @Override
     public String toString() {
-        return "MainBlog{" +
+        return "MainBlogModel{" +
                 "count=" + count +
                 ", result=" + result +
                 '}';

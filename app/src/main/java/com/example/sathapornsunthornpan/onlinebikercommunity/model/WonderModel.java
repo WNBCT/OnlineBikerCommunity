@@ -1,4 +1,4 @@
-package com.example.sathapornsunthornpan.onlinebikercommunity.news;
+package com.example.sathapornsunthornpan.onlinebikercommunity.model;
 
 /**
  * Created by sathapornsunthornpan on 12/16/16.

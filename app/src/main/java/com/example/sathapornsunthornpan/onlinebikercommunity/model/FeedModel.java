@@ -1,4 +1,4 @@
-package com.example.sathapornsunthornpan.onlinebikercommunity.news;
+package com.example.sathapornsunthornpan.onlinebikercommunity.model;
 
 
 import com.google.gson.annotations.Expose;

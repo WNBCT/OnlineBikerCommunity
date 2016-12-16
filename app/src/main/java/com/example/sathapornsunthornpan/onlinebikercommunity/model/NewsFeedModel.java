@@ -1,6 +1,7 @@
-package com.example.sathapornsunthornpan.onlinebikercommunity.news;
+package com.example.sathapornsunthornpan.onlinebikercommunity.model;
 
 
+import com.example.sathapornsunthornpan.onlinebikercommunity.model.FeedModel;
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
 

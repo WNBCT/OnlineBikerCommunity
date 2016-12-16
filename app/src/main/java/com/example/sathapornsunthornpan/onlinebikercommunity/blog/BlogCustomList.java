@@ -6,23 +6,24 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.sathapornsunthornpan.onlinebikercommunity.R;
+import com.example.sathapornsunthornpan.onlinebikercommunity.model.BlogModel;
+import com.example.sathapornsunthornpan.onlinebikercommunity.model.MainBlogModel;
 
 import java.util.List;
 
 
-public class BlogCustomList extends ArrayAdapter<Blog> {
+public class BlogCustomList extends ArrayAdapter<BlogModel> {
 
     public Activity context;
-    public List<Blog> blogs;
+    public List<BlogModel> blogModels;
 
-    public BlogCustomList(Activity context, MainBlog mainBlog) {
-        super(context, R.layout.blog_list_layout, mainBlog.result);
+    public BlogCustomList(Activity context, MainBlogModel mainBlogModel) {
+        super(context, R.layout.blog_list_layout, mainBlogModel.result);
         this.context = context;
-        this.blogs = mainBlog.result;
+        this.blogModels = mainBlogModel.result;
     }
 
 
@@ -34,8 +35,8 @@ public class BlogCustomList extends ArrayAdapter<Blog> {
         TextView textViewID = (TextView) listViewItem.findViewById(R.id.txtBlogID);
         TextView textViewName = (TextView) listViewItem.findViewById(R.id.txtBlogName);
 
-        textViewID.setText(blogs.get(position).id);
-        textViewName.setText(blogs.get(position).name);
+        textViewID.setText(blogModels.get(position).id);
+        textViewName.setText(blogModels.get(position).name);
 
         return  listViewItem;
     }

@@ -1,21 +1,21 @@
-package com.example.sathapornsunthornpan.onlinebikercommunity.blog;
+package com.example.sathapornsunthornpan.onlinebikercommunity.model;
 
 
 
-public class Blog {
+public class BlogModel {
 
     public String id;
     public String name;
 
 
-    public Blog(String id, String name) {
+    public BlogModel(String id, String name) {
         this.id = id;
         this.name = name;
     }
 
     @Override
     public String toString() {
-        return "Blog{" +
+        return "BlogModel{" +
                 "id='" + id + '\'' +
                 ", name='" + name + '\'' +
                 '}';

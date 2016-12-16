@@ -1,7 +1,5 @@
 package com.example.sathapornsunthornpan.onlinebikercommunity.blog;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Message;
@@ -11,18 +9,14 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ArrayAdapter;
 import android.widget.ListView;
-import android.widget.Toast;
 
 import com.example.sathapornsunthornpan.onlinebikercommunity.R;
+import com.example.sathapornsunthornpan.onlinebikercommunity.model.MainBlogModel;
 import com.google.gson.Gson;
 
 import java.io.IOException;
 
-import okhttp3.Call;
-import okhttp3.Callback;
 import okhttp3.HttpUrl;
 import okhttp3.OkHttpClient;
 import okhttp3.Request;
@@ -132,11 +126,11 @@ public class BlogFragment extends Fragment {
 
         Gson gson = new Gson();
 
-        MainBlog mainBlog = gson.fromJson(stringJSON, MainBlog.class);
+        MainBlogModel mainBlogModel = gson.fromJson(stringJSON, MainBlogModel.class);
 
-        Log.d("Show Blog", mainBlog.toString());
+        Log.d("Show BlogModel", mainBlogModel.toString());
 
-        BlogCustomList blogCustomList = new BlogCustomList(getActivity(), mainBlog);
+        BlogCustomList blogCustomList = new BlogCustomList(getActivity(), mainBlogModel);
         listView = (ListView) viewGo.findViewById(R.id.listViewNews);
         listView.setAdapter(blogCustomList);
 
