@@ -1,6 +1,7 @@
 package com.example.sathapornsunthornpan.onlinebikercommunity.news;
 
 
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
@@ -28,6 +29,8 @@ import okhttp3.OkHttpClient;
 import okhttp3.Request;
 import okhttp3.Response;
 
+
+
 public class NewsCardFragment extends Fragment {
 
     private HttpUrl url;
@@ -45,8 +48,8 @@ public class NewsCardFragment extends Fragment {
         // make url
         url = new HttpUrl.Builder()
                 .scheme("http")
-                .host("10.71.27.157").port(80)
-                .addPathSegments("project/csc4202/test/getFeed.php")
+                .host("10.71.6.255").port(80)
+                .addPathSegments("project/mobileonlinebiker/rss/news")
                 .build();
 
         callAsync();
@@ -54,7 +57,7 @@ public class NewsCardFragment extends Fragment {
 
     @Nullable
     @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_card_news_feed, container, false);
 
         recyclerView = (RecyclerView) view.findViewById(R.id.cardViewNewsFeed);
@@ -72,10 +75,21 @@ public class NewsCardFragment extends Fragment {
         newsAdapter.SetOnItemClickListener(new NewsAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-                Toast.makeText(getActivity(), "" + position, Toast.LENGTH_SHORT).show();
+//                Toast.makeText(getActivity(), "" + position, Toast.LENGTH_SHORT).show();
 
+                Intent intent = new Intent(getActivity(), NewsWebViewActivity.class);
 
+                // show web view
+                intent.putExtra("url", listItem.get(position).getLink());
+                intent.putExtra("title", listItem.get(position).getTitle());
 
+                // show scrolling
+//                intent.putExtra("title", listItem.get(position).getTitle());
+//                intent.putExtra("date", listItem.get(position).getDate());
+//                intent.putExtra("credit", listItem.get(position).getCategory());
+//                intent.putExtra("image", listItem.get(position).getImage());
+
+                startActivity(intent);
             }
         });
 
