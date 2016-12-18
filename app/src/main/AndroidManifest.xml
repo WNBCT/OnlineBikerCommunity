@@ -22,7 +22,6 @@
         </activity>
         <activity android:name=".LoginActivity" />
         <activity android:name=".IntroActivity" />
-
         <activity
             android:name=".test.NewsScrollingActivity"
             android:label="@string/title_activity_news_scrolling"
@@ -31,9 +30,8 @@
             android:name=".news.ScrollingNewsActivity"
             android:label="@string/title_activity_scrolling_news"
             android:theme="@style/AppTheme.NoActionBar" />
-
-        <activity
-            android:name=".news.NewsWebViewActivity" />
+        <activity android:name=".news.NewsWebViewActivity" />
+        <activity android:name=".blog.AddBlogActivity"></activity>
     </application>
 
 </manifest>

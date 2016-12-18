@@ -18,7 +18,22 @@
     <string name="menu_logout">ออกจากระบบ</string>
     <string name="menu_register">สมัครสมาชิก</string>
 
+    <string name="blog_menu_insert">เพิ่มบล็อกความรู้</string>
+
+    <string name="blog_title">ชื่อบล็อก</string>
+    <string name="blog_description">รายละเอียด</string>
+    <string name="blog_image">รูปภาพ</string>
+    <string name="blog_tags">แท็ก</string>
+
+    <string name="blog_tags_101">กฏจราจร</string>
+    <string name="blog_tags_102">การดูแลรักษารถ</string>
+    <string name="blog_tags_103">เทคนิคการใช้รถใช้ถนน</string>
+    <string name="blog_tags_104">แนะนำสถานที่น่าเที่ยว</string>
+    <string name="blog_tags_105">รถบิ๊กไบค์ (Bigbike)</string>
+    <string name="blog_tags_106">รีวิว (Review)</string>
+
     <string name="send_to">Share</string>
+    <string name="btn_save">บันทึก</string>
 
     <string name="lorem_ipsum">Sugar plum sugar plum gummies donut jelly powder. Icing muffin cheesecake liquorice wafer bonbon. Bonbon tootsie roll halvah. Lollipop macaroon bear claw chocolate cake. Chocolate bar gummi bears candy cheesecake icing oat cake. Cake chocolate cake liquorice pie. Donut halvah lollipop. Bear claw lollipop sweet roll cookie dragée dragée donut candy. Cheesecake liquorice marzipan dragée muffin chocolate dessert jujubes. Cupcake ice cream tootsie roll bonbon croissant gingerbread ice cream danish. Jelly beans donut jujubes sugar plum. Tootsie roll tiramisu chupa chups dragée cheesecake brownie chocolate bar chocolate bar icing. Apple pie cake carrot cake gingerbread candy canes</string>
     <string name="article_detail_more_info">More Info</string>

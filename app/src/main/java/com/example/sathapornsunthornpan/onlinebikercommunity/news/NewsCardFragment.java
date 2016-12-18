@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -14,8 +15,10 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Toast;
 
+import com.example.sathapornsunthornpan.onlinebikercommunity.MainActivity;
 import com.example.sathapornsunthornpan.onlinebikercommunity.R;
 import com.example.sathapornsunthornpan.onlinebikercommunity.adapter.NewsAdapter;
+import com.example.sathapornsunthornpan.onlinebikercommunity.config.Config;
 import com.example.sathapornsunthornpan.onlinebikercommunity.model.FeedModel;
 import com.example.sathapornsunthornpan.onlinebikercommunity.model.NewsFeedModel;
 import com.google.gson.Gson;
@@ -38,18 +41,19 @@ public class NewsCardFragment extends Fragment {
     private ArrayList<FeedModel> listItem = new ArrayList<>();
     private NewsAdapter newsAdapter;
 
+    private FloatingActionButton floatingActionButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        getActivity().setTitle("News & Activity");
+        getActivity().setTitle(R.string.menu_news);
 
 
         // make url
         url = new HttpUrl.Builder()
-                .scheme("http")
-                .host("10.71.6.255").port(80)
-                .addPathSegments("project/mobileonlinebiker/rss/news")
+                .scheme(Config.SCHEMA)
+                .host(Config.HOST).port(Config.PORT)
+                .addPathSegments(Config.URI + "rss/news")
                 .build();
 
         callAsync();
@@ -60,7 +64,13 @@ public class NewsCardFragment extends Fragment {
     public View onCreateView(final LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_card_news_feed, container, false);
 
+        // By id
         recyclerView = (RecyclerView) view.findViewById(R.id.cardViewNewsFeed);
+        floatingActionButton = ((MainActivity) getActivity()).getFloatingActionButton();
+
+        // hide fab
+        floatingActionButton.hide();
+
         recyclerView.setHasFixedSize(true);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
@@ -134,7 +144,7 @@ public class NewsCardFragment extends Fragment {
 
         NewsFeedModel newsFeedModel = gson.fromJson(s, NewsFeedModel.class);
 
-        Log.d("gsonTEST", newsFeedModel.getFeed() + "");
+        Log.d("gsonTEST", newsFeedModel.getFeed().get(0).getTitle() + "");
 
         List<FeedModel> lists = newsFeedModel.getFeed();
 

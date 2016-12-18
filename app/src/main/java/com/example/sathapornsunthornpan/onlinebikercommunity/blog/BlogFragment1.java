@@ -12,7 +12,6 @@ import android.view.ViewGroup;
 import android.widget.ListView;
 
 import com.example.sathapornsunthornpan.onlinebikercommunity.R;
-import com.example.sathapornsunthornpan.onlinebikercommunity.model.MainBlogModel;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -23,7 +22,7 @@ import okhttp3.Request;
 import okhttp3.Response;
 
 
-public class BlogFragment extends Fragment {
+public class BlogFragment1 extends Fragment {
 
     ListView listView;
     HttpUrl url;
@@ -127,13 +126,8 @@ public class BlogFragment extends Fragment {
 
         Gson gson = new Gson();
 
-        MainBlogModel mainBlogModel = gson.fromJson(stringJSON, MainBlogModel.class);
 
-        Log.d("Show BlogModel", mainBlogModel.toString());
 
-        BlogCustomList blogCustomList = new BlogCustomList(getActivity(), mainBlogModel);
-//        listView = (ListView) viewGo.findViewById(R.id.listViewNews);
-//        listView.setAdapter(blogCustomList);
 
 
     }

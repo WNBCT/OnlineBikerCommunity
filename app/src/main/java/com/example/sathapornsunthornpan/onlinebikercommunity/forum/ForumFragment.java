@@ -27,6 +27,8 @@ public class ForumFragment extends Fragment {
         super.onViewCreated(view, savedInstanceState);
 
         getActivity().setTitle(R.string.menu_forum);
+
+
     }
 
 }

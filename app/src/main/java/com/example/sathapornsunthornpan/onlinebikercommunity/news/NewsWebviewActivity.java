@@ -5,6 +5,9 @@ import android.os.Build;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.webkit.CookieManager;
+import android.webkit.PermissionRequest;
+import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
@@ -32,15 +35,24 @@ public class NewsWebViewActivity extends AppCompatActivity {
 
         setTitle(title);
 
+
         // Apply defaults including useWideViewport which us required
         // to make the text auto size to work
         setUpWebViewDefaults(webView);
 
-
         // Make the WebView handle all loaded URLs
-        webView.setWebViewClient(new WebViewClient());
-
         webView.loadUrl(url);
+        webView.setWebChromeClient(new WebChromeClient() {
+            @Override
+            public void onPermissionRequest(final PermissionRequest request) {
+                runOnUiThread(new Runnable() {
+                    @Override
+                    public void run() {
+                        request.grant(request.getResources());
+                    }
+                });
+            }
+        });
     }
 
 
@@ -65,6 +77,9 @@ public class NewsWebViewActivity extends AppCompatActivity {
         // Enable pinch to zoom without the zoom buttons
         settings.setBuiltInZoomControls(true);
 
+        // Allow use of Local Storage
+        settings.setDomStorageEnabled(true);
+
         if(Build.VERSION.SDK_INT > Build.VERSION_CODES.HONEYCOMB) {
             // Hide the zoom controls for HONEYCOMB+
             settings.setDisplayZoomControls(false);
@@ -74,6 +89,12 @@ public class NewsWebViewActivity extends AppCompatActivity {
         if(Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             WebView.setWebContentsDebuggingEnabled(true);
         }
+
+        webView.setWebViewClient(new WebViewClient());
+
+        // AppRTC requires third party cookies to work
+        CookieManager cookieManager = CookieManager.getInstance();
+        cookieManager.setAcceptThirdPartyCookies(webView, true);
     }
 
 
