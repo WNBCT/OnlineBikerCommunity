@@ -1,9 +1,6 @@
 package com.example.sathapornsunthornpan.onlinebikercommunity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
@@ -14,17 +11,16 @@ import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.MenuItem;
-import android.view.View;
 
-import com.example.sathapornsunthornpan.onlinebikercommunity.blog.BlogCardFragment;
-import com.example.sathapornsunthornpan.onlinebikercommunity.forum.ForumFragment;
+import com.example.sathapornsunthornpan.onlinebikercommunity.forum.MainForumFragment;
 import com.example.sathapornsunthornpan.onlinebikercommunity.news.NewsCardFragment;
-import com.example.sathapornsunthornpan.onlinebikercommunity.setting.SettingFragment;
+import com.example.sathapornsunthornpan.onlinebikercommunity.user.LoginFragment;
+import com.example.sathapornsunthornpan.onlinebikercommunity.user.ProfileFragment;
+import com.example.sathapornsunthornpan.onlinebikercommunity.user.RegisterFragment;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
-    private FloatingActionButton fab;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,21 +41,8 @@ public class MainActivity extends AppCompatActivity
         navigationView.setNavigationItemSelectedListener(this);
         // -------- End Drawer Layout ---------
 
-
-//        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
-//        ft.replace(R.id.content_frame, new BlogFragment1());
-//        ft.commit();
-
-        // FloatingAction
-        fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.hide();
-        // End FloatingAction
     }
 
-    // return fab
-    public FloatingActionButton getFloatingActionButton() {
-        return fab;
-    }
 
 
 
@@ -90,18 +73,17 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_news) {
             fragment = new NewsCardFragment();
         } else if (id == R.id.nav_blog) {
-//            fragment = new CardFragment();
-            fragment = new BlogCardFragment();
+
         } else if (id == R.id.nav_forum) {
-            fragment = new ForumFragment();
+            fragment = new MainForumFragment();
         } else if (id == R.id.nav_manage) {
-            fragment = new SettingFragment();
+            fragment = new ProfileFragment();
+
         } else if (id == R.id.nav_register) {
+            fragment = new RegisterFragment();
 
         } else if (id == R.id.nav_login) {
-            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
-            startActivity(intent);
-        } else if (id == R.id.nav_logout) {
+            fragment = new LoginFragment();
 
         } else {
 

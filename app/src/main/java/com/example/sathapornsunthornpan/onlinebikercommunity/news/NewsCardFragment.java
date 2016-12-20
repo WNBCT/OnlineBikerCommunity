@@ -5,7 +5,6 @@ import android.content.Intent;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
-import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -13,14 +12,12 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Toast;
 
-import com.example.sathapornsunthornpan.onlinebikercommunity.MainActivity;
 import com.example.sathapornsunthornpan.onlinebikercommunity.R;
-import com.example.sathapornsunthornpan.onlinebikercommunity.adapter.NewsAdapter;
-import com.example.sathapornsunthornpan.onlinebikercommunity.config.Config;
-import com.example.sathapornsunthornpan.onlinebikercommunity.model.FeedModel;
-import com.example.sathapornsunthornpan.onlinebikercommunity.model.NewsFeedModel;
+import com.example.sathapornsunthornpan.onlinebikercommunity.config.Constants;
+import com.example.sathapornsunthornpan.onlinebikercommunity.news.adapter.NewsAdapter;
+import com.example.sathapornsunthornpan.onlinebikercommunity.news.model.FeedModel;
+import com.example.sathapornsunthornpan.onlinebikercommunity.news.model.NewsFeedModel;
 import com.google.gson.Gson;
 
 import java.io.IOException;
@@ -41,7 +38,6 @@ public class NewsCardFragment extends Fragment {
     private ArrayList<FeedModel> listItem = new ArrayList<>();
     private NewsAdapter newsAdapter;
 
-    private FloatingActionButton floatingActionButton;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -51,9 +47,9 @@ public class NewsCardFragment extends Fragment {
 
         // make url
         url = new HttpUrl.Builder()
-                .scheme(Config.SCHEMA)
-                .host(Config.HOST).port(Config.PORT)
-                .addPathSegments(Config.URI + "rss/news")
+                .scheme(Constants.SCHEMA)
+                .host(Constants.HOST).port(Constants.PORT)
+                .addPathSegments(Constants.URI + Constants.FEED_NEWS_OPERATION)
                 .build();
 
         callAsync();
@@ -66,10 +62,6 @@ public class NewsCardFragment extends Fragment {
 
         // By id
         recyclerView = (RecyclerView) view.findViewById(R.id.cardViewNewsFeed);
-        floatingActionButton = ((MainActivity) getActivity()).getFloatingActionButton();
-
-        // hide fab
-        floatingActionButton.hide();
 
         recyclerView.setHasFixedSize(true);
 
@@ -85,19 +77,12 @@ public class NewsCardFragment extends Fragment {
         newsAdapter.SetOnItemClickListener(new NewsAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position) {
-//                Toast.makeText(getActivity(), "" + position, Toast.LENGTH_SHORT).show();
 
                 Intent intent = new Intent(getActivity(), NewsWebViewActivity.class);
 
                 // show web view
                 intent.putExtra("url", listItem.get(position).getLink());
                 intent.putExtra("title", listItem.get(position).getTitle());
-
-                // show scrolling
-//                intent.putExtra("title", listItem.get(position).getTitle());
-//                intent.putExtra("date", listItem.get(position).getDate());
-//                intent.putExtra("credit", listItem.get(position).getCategory());
-//                intent.putExtra("image", listItem.get(position).getImage());
 
                 startActivity(intent);
             }
@@ -143,8 +128,6 @@ public class NewsCardFragment extends Fragment {
         Gson gson = new Gson();
 
         NewsFeedModel newsFeedModel = gson.fromJson(s, NewsFeedModel.class);
-
-        Log.d("gsonTEST", newsFeedModel.getFeed().get(0).getTitle() + "");
 
         List<FeedModel> lists = newsFeedModel.getFeed();
 
