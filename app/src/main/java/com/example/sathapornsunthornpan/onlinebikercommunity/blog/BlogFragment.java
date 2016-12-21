@@ -82,6 +82,9 @@ public class BlogFragment extends Fragment {
                 Intent intent = new Intent(getActivity(), ScrollingBlogActivity.class);
                 intent.putExtra("blog_id", listItem.get(position).getBlogId());
                 intent.putExtra("blog_title", listItem.get(position).getTitle());
+                intent.putExtra("blog_desc", listItem.get(position).getDesc());
+                intent.putExtra("blog_user", listItem.get(position).getUser());
+                intent.putExtra("blog_image", listItem.get(position).getImage());
                 startActivity(intent);
             }
         });

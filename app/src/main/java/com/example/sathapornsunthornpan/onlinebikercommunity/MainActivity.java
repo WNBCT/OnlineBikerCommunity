@@ -21,7 +21,7 @@ import android.view.View;
 import com.example.sathapornsunthornpan.onlinebikercommunity.blog.AddBlogActivity;
 import com.example.sathapornsunthornpan.onlinebikercommunity.blog.BlogFragment;
 import com.example.sathapornsunthornpan.onlinebikercommunity.config.Constants;
-import com.example.sathapornsunthornpan.onlinebikercommunity.forum.MainForumFragment;
+import com.example.sathapornsunthornpan.onlinebikercommunity.forum.ForumFragment;
 import com.example.sathapornsunthornpan.onlinebikercommunity.news.NewsCardFragment;
 import com.example.sathapornsunthornpan.onlinebikercommunity.user.LoginFragment;
 import com.example.sathapornsunthornpan.onlinebikercommunity.user.ProfileFragment;
@@ -66,6 +66,16 @@ public class MainActivity extends AppCompatActivity
             }
         });
         fabHide();
+
+        Fragment fragment;
+        if (checkLogin()) {
+            fragment = new ProfileFragment();
+        } else {
+            fragment = new LoginFragment();
+        }
+        FragmentTransaction ft = getSupportFragmentManager().beginTransaction();
+        ft.replace(R.id.content_frame, fragment);
+        ft.commit();
     }
 
 
@@ -130,7 +140,8 @@ public class MainActivity extends AppCompatActivity
             fragment = new BlogFragment();
         } else if (id == R.id.nav_forum) {
             pageFab = 3; // page forum
-            fragment = new MainForumFragment();
+            fabHide();
+            fragment = new ForumFragment();
 
         } else if (id == R.id.nav_manage) {
             pageFab = 4; // page manage setting

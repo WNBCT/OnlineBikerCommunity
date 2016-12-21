@@ -12,6 +12,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ProgressBar;
 
 import com.example.sathapornsunthornpan.onlinebikercommunity.R;
 import com.example.sathapornsunthornpan.onlinebikercommunity.config.Constants;
@@ -37,6 +38,7 @@ public class NewsCardFragment extends Fragment {
     private RecyclerView recyclerView;
     private ArrayList<FeedModel> listItem = new ArrayList<>();
     private NewsAdapter newsAdapter;
+    private ProgressBar progress;
 
 
     @Override
@@ -62,7 +64,7 @@ public class NewsCardFragment extends Fragment {
 
         // By id
         recyclerView = (RecyclerView) view.findViewById(R.id.cardViewNewsFeed);
-
+        progress = (ProgressBar) view.findViewById(R.id.progress);
         recyclerView.setHasFixedSize(true);
 
         LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
@@ -87,7 +89,7 @@ public class NewsCardFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
+progress.setVisibility(View.VISIBLE);
         return view;
     }
 
@@ -125,6 +127,7 @@ public class NewsCardFragment extends Fragment {
 
     private void getResponseData(String s) {
         // Gson
+        progress.setVisibility(View.INVISIBLE);
         Gson gson = new Gson();
 
         NewsFeedModel newsFeedModel = gson.fromJson(s, NewsFeedModel.class);

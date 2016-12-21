@@ -8,7 +8,8 @@ import okhttp3.HttpUrl;
 public class Constants {
 
     public static final String SCHEMA = "http";
-    public static final String HOST = "10.71.11.188";
+//    public static final String HOST = "10.0.2.2";
+    public static final String HOST = "172.19.196.190";
     public static final int    PORT = 80;
 
     public static final String URI = "project/mobileonlinebiker/";
@@ -35,6 +36,14 @@ public class Constants {
                 .scheme(SCHEMA)
                 .host(HOST).port(PORT)
                 .addPathSegments(URI)
+                .build();
+    }
+
+    public static HttpUrl RootURL(String s) {
+        return new HttpUrl.Builder()
+                .scheme(SCHEMA)
+                .host(HOST).port(PORT)
+                .addPathSegments(s)
                 .build();
     }
 

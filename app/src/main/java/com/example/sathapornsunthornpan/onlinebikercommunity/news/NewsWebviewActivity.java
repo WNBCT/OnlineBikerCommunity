@@ -11,6 +11,7 @@ import android.webkit.WebChromeClient;
 import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.ProgressBar;
 
 import com.example.sathapornsunthornpan.onlinebikercommunity.R;
 
@@ -18,6 +19,7 @@ public class NewsWebViewActivity extends AppCompatActivity {
 
     private WebView webView;
     private String url, title;
+    private ProgressBar process;
 
     @Override
 
@@ -27,14 +29,14 @@ public class NewsWebViewActivity extends AppCompatActivity {
 
 
         webView = (WebView) findViewById(R.id.webview_news);
-
+//        process = (ProgressBar) findViewById(R.id.progress);
         Bundle bundle = getIntent().getExtras();
 
         url = bundle.getString("url", "https://www.google.co.th");
         title = bundle.getString("title", "Title");
 
         setTitle(title);
-
+//        process.setVisibility(View.VISIBLE);
 
         // Apply defaults including useWideViewport which us required
         // to make the text auto size to work
@@ -51,6 +53,13 @@ public class NewsWebViewActivity extends AppCompatActivity {
                         request.grant(request.getResources());
                     }
                 });
+
+            }
+
+            @Override
+            public void onHideCustomView() {
+                super.onHideCustomView();
+//                process.setVisibility(View.INVISIBLE);
             }
         });
 

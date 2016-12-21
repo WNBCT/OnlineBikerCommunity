@@ -29,6 +29,17 @@ public class ListBlog {
     @SerializedName("image")
     @Expose
     private String image;
+    @SerializedName("desc")
+    @Expose
+    private String desc;
+
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc;
+    }
 
     public String getBlogId() {
         return blogId;

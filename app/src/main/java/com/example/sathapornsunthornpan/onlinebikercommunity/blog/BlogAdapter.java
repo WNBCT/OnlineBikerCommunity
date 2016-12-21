@@ -15,6 +15,7 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.example.sathapornsunthornpan.onlinebikercommunity.R;
+import com.example.sathapornsunthornpan.onlinebikercommunity.config.Constants;
 import com.example.sathapornsunthornpan.onlinebikercommunity.model.BlogModel;
 import com.example.sathapornsunthornpan.onlinebikercommunity.model.ListBlog;
 import com.like.LikeButton;
@@ -22,7 +23,10 @@ import com.like.OnLikeListener;
 import com.mikepenz.community_material_typeface_library.CommunityMaterial;
 import com.mikepenz.iconics.IconicsDrawable;
 
+import java.net.URL;
 import java.util.List;
+
+import okhttp3.HttpUrl;
 
 public class BlogAdapter extends RecyclerView.Adapter<BlogAdapter.VersionViewHolder> {
 
@@ -47,9 +51,19 @@ public class BlogAdapter extends RecyclerView.Adapter<BlogAdapter.VersionViewHol
 
     @Override
     public void onBindViewHolder(VersionViewHolder holder, int position) {
+
+        Log.d("Image", "" + Constants.RootURL(list.get(position).getImage()));
+        Log.d("Image", "" + list.get(position).getImage());
+
+        String url = list.get(position).getImage();
+        if (!list.get(position).getImage().contains("http://")) {
+            url = "" + Constants.RootURL(list.get(position).getImage());
+            Log.d("Image", "if => " + url);
+        }
+
         Glide
                 .with(context)
-                .load(list.get(position).getImage())
+                .load(url)
                 .centerCrop()
                 .placeholder(R.drawable.christ_the_redeemer)
                 .crossFade()

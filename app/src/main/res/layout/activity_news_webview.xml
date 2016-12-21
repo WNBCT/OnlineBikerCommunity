@@ -8,8 +8,24 @@
     tools:context="com.example.sathapornsunthornpan.onlinebikercommunity.news.NewsWebViewActivity">
 
 
+
+    <!--<ProgressBar-->
+        <!--style="?android:attr/progressBarStyle"-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="wrap_content"-->
+        <!--android:id="@+id/progress" />-->
+
     <WebView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:id="@+id/webview_news" />
+        android:id="@+id/webview_news"/>
+
+    <!--<WebView-->
+        <!---->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent"-->
+        <!--android:id="@+id/webview_news" >-->
+
+    <!--</WebView>-->
+
 </LinearLayout>
