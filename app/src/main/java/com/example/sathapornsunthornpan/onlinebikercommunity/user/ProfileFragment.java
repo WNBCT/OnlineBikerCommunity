@@ -54,7 +54,7 @@ public class ProfileFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
 
-        pref = getActivity().getSharedPreferences("first" , Context.MODE_PRIVATE);
+        pref = getActivity().getSharedPreferences("LOGIN" , Context.MODE_PRIVATE);
         tv_name.setText("Welcome : "+pref.getString(Constants.NAME,""));
         tv_email.setText(pref.getString(Constants.EMAIL,""));
 

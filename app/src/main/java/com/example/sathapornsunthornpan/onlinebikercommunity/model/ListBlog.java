@@ -6,7 +6,7 @@ import com.google.gson.annotations.SerializedName;
 
 import java.util.List;
 
-public class BlogModel {
+public class ListBlog {
 
     @SerializedName("blog_id")
     @Expose
@@ -17,18 +17,18 @@ public class BlogModel {
     @SerializedName("public_date")
     @Expose
     private String publicDate;
-    @SerializedName("image")
-    @Expose
-    private String image;
     @SerializedName("tags")
     @Expose
-    private String tags;
+    private List<Tag> tags = null;
     @SerializedName("user")
     @Expose
     private String user;
     @SerializedName("symbol")
     @Expose
     private String symbol;
+    @SerializedName("image")
+    @Expose
+    private String image;
 
     public String getBlogId() {
         return blogId;
@@ -54,19 +54,11 @@ public class BlogModel {
         this.publicDate = publicDate;
     }
 
-    public String getImage() {
-        return image;
-    }
-
-    public void setImage(String image) {
-        this.image = image;
-    }
-
-    public String getTags() {
+    public List<Tag> getTags() {
         return tags;
     }
 
-    public void setTags(String tags) {
+    public void setTags(List<Tag> tags) {
         this.tags = tags;
     }
 
@@ -86,5 +78,12 @@ public class BlogModel {
         this.symbol = symbol;
     }
 
+    public String getImage() {
+        return image;
+    }
+
+    public void setImage(String image) {
+        this.image = image;
+    }
 }
 

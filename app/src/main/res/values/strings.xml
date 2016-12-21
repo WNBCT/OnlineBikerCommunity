@@ -129,4 +129,6 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
     <string name="title_activity_scrolling_news">ScrollingNewsActivity</string>
+    <string name="title_activity_add_blog">AddBlogActivity</string>
+    <string name="title_activity_scrolling_blog">ScrollingBlogActivity</string>
 </resources>

@@ -65,7 +65,7 @@
                 <EditText
                     android:layout_width="252dp"
                     android:layout_height="wrap_content"
-                    android:inputType="textPersonName"
+                    android:inputType="textMultiLine"
                     android:ems="10"
                     android:id="@+id/editBlogDescription" />
             </TableRow>

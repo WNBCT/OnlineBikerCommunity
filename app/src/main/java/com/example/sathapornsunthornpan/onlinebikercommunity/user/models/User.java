@@ -3,6 +3,7 @@ package com.example.sathapornsunthornpan.onlinebikercommunity.user.models;
 
 public class User {
 
+    private String user_id;
     private String name;
     private String email;
     private String unique_id;
@@ -10,6 +11,13 @@ public class User {
     private String old_password;
     private String new_password;
 
+    public String getUser_id() {
+        return user_id;
+    }
+
+    public void setUser_id(String user_id) {
+        this.user_id = user_id;
+    }
 
     public String getName() {
         return name;

@@ -6,7 +6,6 @@
 
     <application
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
@@ -21,13 +20,23 @@
             </intent-filter>
         </activity>
         <activity android:name=".IntroActivity" />
-
         <activity
             android:name=".news.ScrollingNewsActivity"
             android:label="@string/title_activity_scrolling_news"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".news.NewsWebViewActivity" />
-        <activity android:name=".blog.AddBlogActivity"></activity>
+        <activity
+            android:name=".blog.AddBlogActivity"
+            android:label="@string/title_activity_add_blog" />
+
+        <!-- <activity -->
+        <!-- android:name=".blog.AddBlogActivity" -->
+        <!-- android:label="@string/title_activity_add_blog" -->
+        <!-- android:theme="@style/AppTheme.NoActionBar"></activity> -->
+        <activity
+            android:name=".blog.ScrollingBlogActivity"
+            android:label="@string/title_activity_scrolling_blog"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>

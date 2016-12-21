@@ -3,6 +3,9 @@ package com.example.sathapornsunthornpan.onlinebikercommunity.user.models;
 
 public class ServerResponse {
 
+    private String success;
+    private String error;
+
     private String result;
     private String message;
     private User user;
@@ -17,5 +20,14 @@ public class ServerResponse {
 
     public User getUser() {
         return user;
+    }
+
+
+    public String getSuccess() {
+        return success;
+    }
+
+    public String getError() {
+        return error;
     }
 }

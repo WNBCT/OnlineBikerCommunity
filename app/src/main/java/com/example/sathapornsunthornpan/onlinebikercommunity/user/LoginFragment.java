@@ -50,7 +50,7 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
 
     private void initViews(View view){
 
-        pref = getActivity().getSharedPreferences("first" , Context.MODE_PRIVATE);
+        pref = getActivity().getSharedPreferences("LOGIN" , Context.MODE_PRIVATE);
 
         btn_login = (AppCompatButton)view.findViewById(R.id.btn_login);
         tv_register = (TextView)view.findViewById(R.id.tv_register);
@@ -122,7 +122,9 @@ public class LoginFragment extends Fragment implements View.OnClickListener{
                 if(resp.getResult().equals(Constants.SUCCESS)){
 
                     SharedPreferences.Editor editor = pref.edit();
+
                     editor.putBoolean(Constants.IS_LOGGED_IN,true);
+                    editor.putString(Constants.USER_ID, resp.getUser().getUser_id());
                     editor.putString(Constants.EMAIL, resp.getUser().getEmail());
                     editor.putString(Constants.NAME, resp.getUser().getName());
                     editor.putString(Constants.UNIQUE_ID, resp.getUser().getUnique_id());
